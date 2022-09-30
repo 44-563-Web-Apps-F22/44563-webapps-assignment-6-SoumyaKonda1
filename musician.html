@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Musician guess by - Soumya konda</title>
+</head>
+
+<body>
+
+    <h2>Musician guess by - Soumya konda </h2>
+    <div class="container">
+       
+        <form>
+            <div class="form-group">
+            </div>
+            <label for="form1_musician_name">Enter the secret
+                musician name </label>
+            <input type="password" id="form1_musician_name" name="form1_musician_name" min=10 max=50 step=2
+                value="John Lennon"> <br>
+
+            <label for="form1_guess_name">Guess the musician </label>
+            <input type="text" id="form1_guess_name" name="form1_guess_name" autofocus> <br>
+
+            <input type="button" onclick="checkGuess()" value="Check the guess">
+        </form>
+
+
+        <p id="result">This text will be replaced </p>
+
+    </div>
+
+    <script>
+        var correct = 0;
+        var wrong = 0;
+        function checkGuess() {
+            console.log("Getting form values")
+            musician_name = document.getElementById("form1_musician_name").value;
+            guess_name = document.getElementById("form1_guess_name").value;
+            if (musician_name != "" && guess_name != "") {
+                if (musician_name == guess_name) {
+                    correct += 1;
+                    alert("You got it right");
+                } else {
+                    wrong += 1;
+                    alert("Wrong Musician");
+                }
+                out = document.getElementById("result")
+                if (correct) {
+                    out.innerHTML = "You got it right";
+                } else {
+                    out.innerHTML = "Wrong Musician ";
+                }
+            }
+            else {
+                alert("Please enter values");
+            }
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
