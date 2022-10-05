@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript caluculations computes discounts</title>
+</head>
+
+<body>
+
+    <h2>Computes Discounts</h2>
+    <div class="container">
+        <form>
+            <label for="form1_amount">Enter base amount </label>
+            <input type="number" id="form1_amount" name="form1_amount" min=1 max=50 step=2 value=20 autofocus>
+            <br>
+
+            <label for="form1_discount">Enter the discount percentage </label>
+            <input type="number" id="form1_discount" name="form1_discount" value=10> <br>
+
+            <input type="button" onclick="discount()" value="Apply discount">
+        </form>
+    </div>
+    <div class="container">
+        
+    </div>
+
+
+    <p id="result" style="font-weight: bold;"> </p>
+
+    <script>
+
+        function discount() {
+            console.log("Getting form values")
+            form1_amount = document.getElementById("form1_amount").value
+            form1_discount = document.getElementById("form1_discount").value
+            var totalValue = form1_amount - (form1_amount * (form1_discount / 100))
+            console.log(totalValue);
+            var result = 'Discounted amounts for base ' + form1_amount + ' are: ';
+            for (var i = 1; i <= 5; i++) {
+                var val = i * totalValue;
+                result += val + ' ';
+            }
+
+            out = document.getElementById("result")
+            if (result) {
+                out.innerHTML = result + " (discount was " + form1_discount + ")";
+            } else {
+                out.innerHTML = ""
+            }
+        }
+    </script>
+
+</body>
+
+</html>
