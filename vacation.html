@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Soumya Konda - selects a vacation</title>
+</head>
+
+<body>
+
+    <h2>selects a vacation</h2>
+
+    <div class="form-group">
+        <form>
+            <input type="checkbox" id="cb1_air" name="topping1" value="True">
+            <label for="cb1_air">Travel by Air</label></br>
+
+            <input type="checkbox" id="cb1_domestic" name="topping2" value="True">
+            <label for="cb1_domestic">Domestic</label></br>
+
+            <input type="checkbox" id="cb1_resort" name="topping3" value="False">
+            <label for="cb1_resort">Resort</label></br>
+
+            <input type="button" onclick="selectVacation()" value="Select a vacation">
+            <p id="result">This text will be replaced </p>
+        </form>
+    </div>
+    <!-- <form>
+        <label for="form1_age">What is your age </label>
+        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+        <label for="form1_nick">What is your nickname </label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+        <input type="button" onclick="resolveForm()" value="Get values from form">
+    </form>
+    <p id="result">This text will be replaced </p> -->
+
+    <script>
+        var my_vacation = {};
+        function selectVacation() {
+
+            air = document.getElementById("cb1_air").value
+            dom = document.getElementById("cb1_domestic").value
+            resort = document.getElementById("cb1_resort").value
+
+            my_vacation.air = (document.getElementById("cb1_air").checked);
+            my_vacation.domestic = (document.getElementById("cb1_domestic").checked);
+            my_vacation.resort = (document.getElementById("cb1_resort").checked);
+
+            out = document.getElementById("result")
+
+            out.innerHTML = JSON.stringify(my_vacation);
+
+        }
+    </script>
+
+</body>
+
+</html>
