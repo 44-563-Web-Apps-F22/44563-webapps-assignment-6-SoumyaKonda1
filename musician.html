@@ -52,7 +52,16 @@
                     alert("You got it right");
                 } else {
                     wrong += 1;
-                    alert("Wrong Musician");
+
+                    if (wrong >= 3) {
+                        alert("Sorry, game over");
+                        wrong = 0;
+                        correct = 0;
+                    }
+                    else {
+                        alert("Wrong Musician");
+
+                    }
                 }
                 out = document.getElementById("result")
                 if (correct) {
@@ -60,6 +69,7 @@
                 } else {
                     out.innerHTML = "Wrong Musician ";
                 }
+
             }
             else {
                 alert("Please enter values");
