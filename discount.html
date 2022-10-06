@@ -18,21 +18,33 @@
             <input type="number" id="form1_discount" name="form1_discount" value=10> <br>
 
             <input type="button" onclick="discount()" value="Apply discount">
+            <br>
+            <p id="result" style="font-weight: bold;"> </p>
         </form>
     </div>
     <div class="container">
-        
+        <form>
+            <input type="radio" id="rg1_times" name="caluc" value="times" onclick="chooseOp()">
+            <label for="rg1_times">*</label></br>
+
+            <input type="radio" id="rg1_divide" name="caluc" value="divide" onclick="chooseOp()">
+            <label for="rg1_divide">/</label></br>
+
+            <input type="radio" id="rg1_exponent" name="caluc" value="exponent" onclick="chooseOp()">
+            <label for="rg1_exponent">**</label></br>
+            <p id="result1" style="font-weight: bold;"> </p>
+        </form>
     </div>
 
 
-    <p id="result" style="font-weight: bold;"> </p>
+
 
     <script>
 
         function discount() {
             console.log("Getting form values")
-            form1_amount = document.getElementById("form1_amount").value
-            form1_discount = document.getElementById("form1_discount").value
+            var form1_amount = document.getElementById("form1_amount").value
+            var form1_discount = document.getElementById("form1_discount").value
             var totalValue = form1_amount - (form1_amount * (form1_discount / 100))
             console.log(totalValue);
             var result = 'Discounted amounts for base ' + form1_amount + ' are: ';
@@ -47,6 +59,31 @@
             } else {
                 out.innerHTML = ""
             }
+        }
+        function chooseOp() {
+
+            var form1_amount = document.getElementById("form1_amount").value
+            var form1_discount = document.getElementById("form1_discount").value
+            var rg1_times = document.getElementById("rg1_times").checked
+            var rg1_divide = document.getElementById("rg1_divide").checked
+            var rg1_exponent = document.getElementById("rg1_exponent").checked
+            var result = 0;
+
+            if (rg1_times) {
+                result = form1_amount * form1_discount;
+            }
+            else if (rg1_divide) {
+                result = form1_amount / form1_discount;
+            }
+            else if (rg1_exponent) {
+                result = form1_amount ** form1_discount;
+            }
+
+            out = document.getElementById("result1")
+
+            out.innerHTML = "The Results is " + result;
+
+
         }
     </script>
 
